@@ -6,7 +6,7 @@
 /*   By: ehedeman <ehedeman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:43:07 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/03/08 12:24:31 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:18:42 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,18 @@ static long	ft_atoi_long(const char *str)
 
 static int	is_num(char *num)
 {
-	while (*num)
+	int	i;
+
+	i = 0;
+	if (num[i] == '-')
+		i++;
+	if (!num[i])
+		return (1);
+	while (num[i])
 	{
-		if (ft_isdigit(*num) == 0)
+		if (ft_isdigit(num[i]) == 0)
 			return (1);
-		num++;
+		i++;
 	}
 	return (0);
 }
@@ -58,11 +65,23 @@ static int	is_num(char *num)
 // 	return (i);
 // }
 //only use if argc == 2. If argc > 2 then it will segfault
+static int	check_duplicate(int nbr, char **args, int i)
+{
+	while (args[i])
+	{
+		if (ft_atoi(args[i]) == nbr)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 int	check_format(char **arg, int argc, int i, int ret)
 {
 	long	temp;
 
+	if (!*arg[i])
+		return (1);
 	while (arg[i])
 	{
 		if (is_num(arg[i]) == 1 && ret == 0)
@@ -70,6 +89,8 @@ int	check_format(char **arg, int argc, int i, int ret)
 		if (ret == 0)
 			temp = ft_atoi_long(arg[i]);
 		if (temp > 2147483647 || temp < -2147483648)
+			ret = 1;
+		if (check_duplicate(temp, arg, i + 1) == 1 && ret == 0)
 			ret = 1;
 		if (temp != ft_atoi(arg[i]) && ret == 0)
 			ret = 1;

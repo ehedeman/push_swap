@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_list.h                                           :+:      :+:    :+:   */
+/*   check_sorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehedeman <ehedeman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 11:38:02 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/03/28 11:05:36 by ehedeman         ###   ########.fr       */
+/*   Created: 2024/03/19 12:06:16 by ehedeman          #+#    #+#             */
+/*   Updated: 2024/03/28 12:18:01 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "push_swap.h"
 
-typedef struct s_list
+int	check_sort(t_list *stack)
 {
-	int				value;
-	int				index;
-	void			*next;
-}				t_list;
+	int	i;
 
-t_list		*ft_lstnew(int content);
-void		ft_lstadd_front(t_list **lst, t_list *new);
-void		ft_lstadd_back(t_list **lst, t_list *new);
-int			ft_lstsize(t_list *lst);
-t_list		*ft_lstlast(t_list *lst);
+	i = stack->value;
+	while (stack)
+	{
+		if (i > stack->value)
+			return (1);
+		i = stack->value;
+		stack = stack->next;
+	}
+	return (0);
+}

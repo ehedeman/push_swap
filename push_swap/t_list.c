@@ -6,7 +6,7 @@
 /*   By: ehedeman <ehedeman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:04:10 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/03/08 11:07:53 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/03/21 12:24:06 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_list	*ft_lstnew(int value)
 	if (!list)
 		return (0);
 	list->value = value;
-	list->index = -1;
+	list->index = 0;
 	list->next = NULL;
 	return (list);
 }

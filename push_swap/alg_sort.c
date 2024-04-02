@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_list.h                                           :+:      :+:    :+:   */
+/*   alg_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ehedeman <ehedeman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 11:38:02 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/03/28 11:05:36 by ehedeman         ###   ########.fr       */
+/*   Created: 2024/03/19 12:44:49 by ehedeman          #+#    #+#             */
+/*   Updated: 2024/03/21 12:46:30 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "push_swap.h"
 
-typedef struct s_list
+void	sort(t_list **a, t_list **b)
 {
-	int				value;
-	int				index;
-	void			*next;
-}				t_list;
-
-t_list		*ft_lstnew(int content);
-void		ft_lstadd_front(t_list **lst, t_list *new);
-void		ft_lstadd_back(t_list **lst, t_list *new);
-int			ft_lstsize(t_list *lst);
-t_list		*ft_lstlast(t_list *lst);
+	if (ft_lstsize(a[0]) == 2)
+		swap_a(a);
+	else if (ft_lstsize(a[0]) == 3)
+	{
+		sort_three(a);
+	}
+	else if (ft_lstsize(a[0]) == 4)
+	{
+		sort_four(a, b);
+	}
+	else if (ft_lstsize(a[0]) == 5)
+	{
+		sort_five(a, b);
+	}
+	else
+	{
+		radix_sort(a, b, 0, 0);
+	}
+}

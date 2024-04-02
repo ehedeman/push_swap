@@ -6,7 +6,7 @@
 /*   By: ehedeman <ehedeman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:23:53 by ehedeman          #+#    #+#             */
-/*   Updated: 2024/03/11 13:33:52 by ehedeman         ###   ########.fr       */
+/*   Updated: 2024/03/27 10:16:03 by ehedeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,13 @@ void	rotate_rotate(t_list **stack_a, t_list **stack_b);
 void	rotate_rev_a(t_list **stack_a);
 void	rotate_rev_b(t_list **stack_b);
 void	rotate_rev_rotate(t_list **stack_a, t_list **stack_b);
+int		check_sort(t_list *stack);
+int		find_index(t_list *stack, int nbr);
+int		find_min(t_list *stack);
+int		find_max(t_list *stack);
+void	sort(t_list **a, t_list **b);
+void	sort_three(t_list **stack_a);
+void	sort_four(t_list **a, t_list **b);
+void	sort_five(t_list **a, t_list **b);
+void	radix_sort(t_list **a, t_list **b, int i, int j);
+int		find_max_bits(t_list **stack);
